@@ -1,0 +1,16 @@
+BLAST Program:
+
+Blastp is ideal if the sequences in human.fa and mouse.fa are protein sequences, as it aligns amino acid sequences. If the sequences are nucleotide-based, blastn would be used instead.
+Protein sequences generally provide more meaningful homologous alignments due to evolutionary conservation and the ability to account for amino acid similarities, whereas nucleotide sequences are shorter and show more variation without significant biological similarity.
+
+Substitution Matrix:
+
+For protein sequences, the BLOSUM62 matrix is recommended. T default nucleotide scoring in BLAST works well without requiring an additional substitution matrix.
+BLOSUM62 is a widely accepted matrix for general-purpose protein alignment because it is derived from observed substitutions in protein families and balances sensitivity with specificity. 
+The matrix is suitable for sequences with moderate similarity, making it ideal for cross-species homologs. For nucleotide BLAST, simpler scoring schemes suffice due to the limited nucleotide alphabet (A, T, C, G).
+
+Parameters:
+
+An E-value cutoff of 0.001 is often used to filter out non-significant hits. Biologically relevant matches are considered so this value is low enough to minimize false positives while retaining genuine homologs.
+The default word size for blastp or blastn is appropriate for homologous searches as it balances sensitivity and speed. Smaller word sizes increase sensitivity by detecting smaller alignments but may result in more computational overhead.
+Using the output format XML enables easy parsing and detailed result extraction, allowing us to capture the top alignment with specifics like the bitscore and alignment length.
